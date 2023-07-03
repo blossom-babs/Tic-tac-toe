@@ -1,25 +1,34 @@
+import { useState } from 'react';
 import './App.css';
 
-export default function Square() {
+
+export function Square({ value }) {
+  // const [value, setValue] = useState(null)
+  // function handleClick() {
+  //   setValue('X')
+  // }
+  return <button className="square">{value}</button>
+
+}
+
+export default function Board() {
+  const [squares, setSquares] = useState(new Array(9).fill(null))
   return (
     <>
       <div className='board-row'>
-        <button className="square">1</button>
-        <button className="square">2</button>
-        <button className="square">3</button>
-        <button className="square">4</button>
+        <Square value={squares[0]} />
+        <Square value={squares[1]} />
+        <Square value={squares[2]} />
       </div>
       <div className='board-row'>
-        <button className="square">5</button>
-        <button className="square">6</button>
-        <button className="square">7</button>
-        <button className="square">8</button>
+        <Square value={squares[3]} />
+        <Square value={squares[4]} />
+        <Square value={squares[5]} />
       </div>
       <div className='board-row'>
-        <button className="square">9</button>
-        <button className="square">10</button>
-        <button className="square">11</button>
-        <button className="square">12</button>
+        <Square value={squares[6]} />
+        <Square value={squares[7]} />
+        <Square value={squares[8]} />
       </div>
     </>
   )
